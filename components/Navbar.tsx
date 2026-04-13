@@ -38,6 +38,14 @@ const Navbar = () => {
     return (
         <>
             <div className="sticky top-0 z-[4]">
+                <div className="absolute top-0 left-0 right-0 flex justify-center items-center h-[72px] pointer-events-none">
+                    <a
+                        href={`mailto:${GENERAL_INFO.email}`}
+                        className="pointer-events-auto text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide"
+                    >
+                        {GENERAL_INFO.email}
+                    </a>
+                </div>
                 <button
                     className={cn(
                         'group size-12 absolute top-5 right-5 md:right-10 z-[2]',

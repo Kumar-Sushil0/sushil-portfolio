@@ -1,24 +1,7 @@
 import { GENERAL_INFO } from '@/lib/data';
-import { GitFork, Star } from 'lucide-react';
 import GitHubCalendarWrapper from '@/components/GitHubCalendarWrapper';
 
-interface RepoStats {
-    stargazers_count: number;
-    forks_count: number;
-}
-
 const Footer = async () => {
-    const repoStats = await fetch(
-        'https://api.github.com/repos/tajmirul/portfolio-2.0',
-        {
-            next: {
-                revalidate: 60 * 60, // 1 hour
-            },
-        },
-    );
-
-    const { stargazers_count, forks_count } =
-        (await repoStats.json()) as RepoStats;
 
     return (
         <footer className="text-center pb-5" id="contact">
@@ -33,26 +16,6 @@ const Footer = async () => {
 
                 <div className="mb-12 flex justify-center">
                     <GitHubCalendarWrapper />
-                </div>
-
-                <div className="">
-                    <a
-                        href="https://github.com/Tajmirul/portfolio-2.0"
-                        target="_blank"
-                        className="leading-none text-muted-foreground hover:underline hover:text-white"
-                    >
-                        Design & built by Tajmirul Islam
-                        <br />
-                        Revised by Sushil Kumar
-                        <div className="flex items-center justify-center gap-5 pt-1">
-                            <span className="flex items-center gap-2">
-                                <Star size={18} /> {stargazers_count}
-                            </span>
-                            <span className="flex items-center gap-2">
-                                <GitFork size={18} /> {forks_count}
-                            </span>
-                        </div>
-                    </a>
                 </div>
             </div>
         </footer>

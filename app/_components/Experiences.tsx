@@ -52,20 +52,20 @@ const Experiences = () => {
     );
 
     return (
-        <section className="py-section" id="my-experience">
+        <section className="py-16 md:py-section" id="my-experience">
             <div className="container" ref={containerRef}>
                 <SectionTitle title="My Experience" />
 
-                <div className="grid gap-14">
+                <div className="grid gap-10 md:gap-14">
                     {MY_EXPERIENCE.map((item) => (
-                        <div key={item.title} className="experience-item">
-                            <p className="text-xl text-muted-foreground">
+                        <div key={item.title} className="experience-item border-b pb-10 md:pb-0 md:border-none last:border-none last:pb-0">
+                            <p className="text-base sm:text-xl text-muted-foreground">
                                 {item.company}
                             </p>
-                            <p className="text-5xl font-anton leading-none mt-3.5 mb-2.5">
+                            <p className="text-3xl sm:text-4xl md:text-5xl font-anton leading-none mt-2.5 mb-2">
                                 {item.title}
                             </p>
-                            <p className="text-lg text-muted-foreground">
+                            <p className="text-sm sm:text-lg text-muted-foreground">
                                 {item.duration}
                             </p>
                         </div>

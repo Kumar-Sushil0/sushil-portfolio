@@ -1,5 +1,6 @@
 'use client';
 import SectionTitle from '@/components/SectionTitle';
+import TransitionLink from '@/components/TransitionLink';
 import { PROJECTS } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { useGSAP } from '@gsap/react';
@@ -149,6 +150,18 @@ const ProjectList = () => {
                             />
                         ))}
                     </div>
+                </div>
+
+                <div className="mt-12 flex justify-center">
+                    <TransitionLink
+                        href="/projects"
+                        className="group inline-flex items-center gap-3 border border-border px-8 h-12 font-anton uppercase tracking-widest text-sm hover:border-primary hover:text-primary transition-all duration-300"
+                    >
+                        View All Projects
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
+                            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </TransitionLink>
                 </div>
             </div>
         </section>

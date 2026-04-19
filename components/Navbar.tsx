@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
+import TransitionLink from '@/components/TransitionLink';
 
 const COLORS = [
     'bg-yellow-500 text-black',
@@ -27,7 +28,7 @@ const MENU_LINKS = [
     },
     {
         name: 'Projects',
-        url: '/#selected-projects',
+        url: '/projects',
     },
 ];
 
@@ -38,6 +39,13 @@ const Navbar = () => {
     return (
         <>
             <div className="sticky top-0 z-[4]">
+                <TransitionLink
+                    href="/"
+                    className="absolute top-3 left-5 md:left-10 z-[2] font-anton text-4xl leading-none select-none"
+                >
+                    <span className="text-primary">S</span>
+                    <span className="text-foreground">K</span>
+                </TransitionLink>
                 <button
                     className={cn(
                         'group size-12 absolute top-5 right-5 md:right-10 z-[2]',

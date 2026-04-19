@@ -8,7 +8,7 @@ const GitHubCalendarWrapper = () => {
     const [year, setYear] = useState(currentYear);
 
     return (
-        <div className="flex flex-col items-center gap-4 w-full">
+        <div className="flex flex-col items-center gap-4">
             <div className="flex gap-2">
                 {[currentYear, currentYear - 1].map((y) => (
                     <button
@@ -24,46 +24,17 @@ const GitHubCalendarWrapper = () => {
                     </button>
                 ))}
             </div>
-
-            {/* Desktop: normal horizontal */}
-            <div className="hidden sm:block">
-                <GitHubCalendar
-                    username="Kumar-Sushil0"
-                    year={year}
-                    colorScheme="dark"
-                    theme={{ dark: ['#2d2d2d', '#00d97e'] }}
-                    blockSize={13}
-                    blockMargin={4}
-                    fontSize={12}
-                />
-            </div>
-
-            {/* Mobile: rotated 90deg so weeks stack vertically */}
-            <div className="sm:hidden w-full flex justify-center">
-                <div
-                    style={{
-                        transform: 'rotate(90deg)',
-                        transformOrigin: 'center center',
-                        width: '80vw',
-                        height: '80vw',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <GitHubCalendar
-                        username="Kumar-Sushil0"
-                        year={year}
-                        colorScheme="dark"
-                        theme={{ dark: ['#2d2d2d', '#00d97e'] }}
-                        blockSize={10}
-                        blockMargin={3}
-                        fontSize={9}
-                        hideColorLegend
-                        hideTotalCount
-                    />
-                </div>
-            </div>
+            <GitHubCalendar
+                username="Kumar-Sushil0"
+                year={year}
+                colorScheme="dark"
+                theme={{
+                    dark: ['#2d2d2d', '#00d97e'],
+                }}
+                blockSize={13}
+                blockMargin={4}
+                fontSize={12}
+            />
         </div>
     );
 };

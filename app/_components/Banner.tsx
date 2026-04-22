@@ -5,14 +5,127 @@ import { GENERAL_INFO } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const STATS = [
+    { value: 3, suffix: '+', label: 'Years of Experience' },
+    { value: 15, suffix: '+', label: 'Completed Projects' },
+    { value: 10, suffix: 'K+', label: 'Hours Worked' },
+];
+
+const CODE_LINES = [
+    { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'developer', color: 'text-foreground' }, { text: ' = {', color: 'text-foreground' }] },
+    { tokens: [{ text: '  name', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Sushil Kumar"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  role', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Full-Stack Developer"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  focus', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Scalable Web Systems"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  experience', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"3+ years"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  projects', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"15+"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  hoursWorked', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"10K+"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  stack', color: 'text-blue-400' }, { text: ': [', color: 'text-foreground' }] },
+    { tokens: [{ text: '  ]', color: 'text-foreground' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  status', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Open to work"', color: 'text-primary' }] },
+    { tokens: [{ text: '};', color: 'text-foreground' }] },
+    { tokens: [] },
+    { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'createMagic', color: 'text-yellow-400' }, { text: ' = () => ', color: 'text-foreground' }, { text: 'passion', color: 'text-blue-400' }, { text: ' + ', color: 'text-foreground' }, { text: '"Code"', color: 'text-primary' }, { text: ';', color: 'text-foreground' }] },
+];
+
+const CodeCard = () => {
+    // flat string of all chars with their color, plus line breaks
+    type CharEntry = { char: string; color: string; isNewLine?: boolean };
+    const allChars = useMemo<CharEntry[]>(() => {
+        const result: CharEntry[] = [];
+        CODE_LINES.forEach((line, li) => {
+            line.tokens.forEach((token) => {
+                for (const char of token.text) {
+                    result.push({ char, color: token.color });
+                }
+            });
+            if (li < CODE_LINES.length - 1) result.push({ char: '\n', color: '', isNewLine: true });
+        });
+        return result;
+    }, []);
+
+    const [typed, setTyped] = useState(0);
+    const [showCursor, setShowCursor] = useState(true);
+
+    useEffect(() => {
+        // wait for preloader to finish (~2.8s) before starting typing
+        const PRELOADER_DURATION = 2800;
+        let i = 0;
+        let interval: ReturnType<typeof setInterval>;
+
+        const startTyping = () => {
+            interval = setInterval(() => {
+                i++;
+                setTyped(i);
+                if (i >= allChars.length) clearInterval(interval);
+            }, 18);
+        };
+
+        const startDelay = setTimeout(startTyping, PRELOADER_DURATION);
+        const cursorInterval = setInterval(() => setShowCursor(p => !p), 530);
+
+        return () => {
+            clearTimeout(startDelay);
+            clearInterval(interval);
+            clearInterval(cursorInterval);
+        };
+    }, [allChars.length]);
+
+    // build lines from typed chars
+    const lines: CharEntry[][] = [[]];
+    for (let i = 0; i < typed; i++) {
+        const entry = allChars[i];
+        if (entry.isNewLine) {
+            lines.push([]);
+        } else {
+            lines[lines.length - 1].push(entry);
+        }
+    }
+
+    return (
+        <div className="slide-up-and-fade hidden md:block w-[420px] xl:w-[480px] shrink-0">
+            <div className="bg-background-light border border-border rounded-sm overflow-hidden shadow-2xl">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-background">
+                    <span className="size-3 rounded-full bg-red-500/70" />
+                    <span className="size-3 rounded-full bg-yellow-500/70" />
+                    <span className="size-3 rounded-full bg-primary/70" />
+                    <span className="ml-3 text-xs text-muted-foreground font-mono">developer.ts</span>
+                </div>
+                <div className="p-5 font-mono text-sm leading-7 min-h-[340px]">
+                    {lines.map((lineChars, li) => (
+                        <div key={li} className="flex">
+                            <span className="text-muted-foreground/40 w-6 shrink-0 text-right mr-4 select-none text-xs leading-7">
+                                {li + 1}
+                            </span>
+                            <span>
+                                {lineChars.map((c, ci) => (
+                                    <span key={ci} className={c.color}>{c.char}</span>
+                                ))}
+                                {li === lines.length - 1 && typed < allChars.length && (
+                                    <span className={`inline-block w-[2px] h-[1em] bg-primary align-middle ml-0.5 transition-opacity ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
+                                )}
+                            </span>
+                        </div>
+                    ))}
+                    {typed >= allChars.length && (
+                        <div className="flex">
+                            <span className="text-muted-foreground/40 w-6 shrink-0 text-right mr-4 select-none text-xs leading-7">{lines.length + 1}</span>
+                            <span className={`inline-block w-[2px] h-[1em] bg-primary align-middle transition-opacity ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const Banner = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
+    const countersRef = useRef<(HTMLSpanElement | null)[]>([]);
 
-    // move the content a little up on scroll
     useGSAP(
         () => {
             const tl = gsap.timeline({
@@ -32,6 +145,27 @@ const Banner = () => {
         },
         { scope: containerRef },
     );
+
+    useGSAP(() => {
+        STATS.forEach((stat, i) => {
+            const el = countersRef.current[i];
+            if (!el) return;
+            gsap.fromTo(
+                el,
+                { innerText: 0 },
+                {
+                    innerText: stat.value,
+                    duration: 2,
+                    delay: 0.8 + i * 0.15,
+                    ease: 'power2.out',
+                    snap: { innerText: 1 },
+                    onUpdate() {
+                        el.innerText = Math.round(Number(el.innerText)).toString();
+                    },
+                },
+            );
+        });
+    });
 
     return (
         <section className="relative overflow-hidden" id="banner">
@@ -54,6 +188,8 @@ const Banner = () => {
                         experience in building high-performance, scalable, and
                         responsive web solutions.
                     </p>
+
+
                     <Button
                         as="link"
                         href={`mailto:${GENERAL_INFO.email}`}
@@ -64,29 +200,18 @@ const Banner = () => {
                     </Button>
                 </div>
 
-                <div className="flex md:flex-col gap-6 md:gap-8 md:absolute md:bottom-[10%] md:right-[4%] md:text-right">
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1">
-                            3+
-                        </h5>
-                        <p className="text-sm sm:text-base text-muted-foreground">
-                            Years of Experience
-                        </p>
-                    </div>
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1">
-                            7+
-                        </h5>
-                        <p className="text-sm sm:text-base text-muted-foreground">
-                            Completed Projects
-                        </p>
-                    </div>
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1">
-                            10K+
-                        </h5>
-                        <p className="text-sm sm:text-base text-muted-foreground">Hours Worked</p>
-                    </div>
+                <CodeCard />
+
+                {/* Stats — mobile only, row layout */}
+                <div className="flex md:hidden gap-6">
+                    {STATS.map((stat) => (
+                        <div key={stat.label} className="slide-up-and-fade">
+                            <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1">
+                                {stat.value}{stat.suffix}
+                            </h5>
+                            <p className="text-sm sm:text-base text-muted-foreground">{stat.label}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

@@ -12,6 +12,50 @@ export const SOCIAL_LINKS = [
     { name: 'linkedin', url: 'https://www.linkedin.com/in/sushil-kumar-b043ab304/' },
 ];
 
+export const TECH_STACK_ICONS: Record<string, string> = {
+    'MERN': '/logo/mern.svg',
+    // Frontend
+    'HTML': '/logo/html.svg',
+    'CSS': '/logo/css.svg',
+    'JavaScript': '/logo/js.png',
+    'TypeScript': '/logo/ts.png',
+    'React': '/logo/react.png',
+    'React.js': '/logo/react.png',
+    'Next.js': '/logo/next.png',
+    'Redux': '/logo/redux.png',
+    'Tailwind CSS': '/logo/tailwind.png',
+    'GSAP': '/logo/gsap.png',
+    'Framer Motion': '/logo/framer-motion.png',
+    'Sass': '/logo/sass.png',
+    'Bootstrap': '/logo/bootstrap.svg',
+    // Backend
+    'Node.js': '/logo/node.png',
+    'NestJS': '/logo/nest.svg',
+    'Express.js': '/logo/express.png',
+    'Python': '/logo/python.svg',
+    'Java': '/logo/java.svg',
+    // Database
+    'MySQL': '/logo/mysql.svg',
+    'PostgreSQL': '/logo/postgreSQL.png',
+    'MongoDB': '/logo/mongodb.svg',
+    'Prisma': '/logo/prisma.png',
+    'Firebase': '/logo/firebase.svg',
+    // Tools & Platforms
+    'Git': '/logo/git.png',
+    'Docker': '/logo/docker.svg',
+    'AWS': '/logo/aws.png',
+    'AWS EC2': '/logo/aws.png',
+    'AWS S3': '/logo/aws.png',
+    'Google Cloud': '/logo/google-cloud.svg',
+    'n8n': '/logo/n8n.png',
+    'Shopify': '/logo/shopify.svg',
+    'Webflow': '/logo/webflow.svg',
+    'WordPress': '/logo/wordpress.svg',
+    'Vercel': '/logo/vercel.svg',
+    'Hostinger': '/logo/hostinger.svg',
+    'GitHub': '/logo/github.png',
+};
+
 export const MY_STACK = {
     frontend: [
         {
@@ -140,6 +184,14 @@ export const MY_STACK = {
             name: 'WordPress',
             icon: '/logo/wordpress.svg',
         },
+        {
+            name: 'Vercel',
+            icon: '/logo/vercel.svg',
+        },
+        {
+            name: 'Hostinger',
+            icon: '/logo/hostinger.svg',
+        },
     ],
 };
 
@@ -147,256 +199,336 @@ export const PROJECTS: IProject[] = [
     {
         title: 'Lifeidesign',
         slug: 'lifeidesign',
-        liveUrl: 'https://electroev.co.uk/',
+        liveUrl: 'https://app.lifeidesign.games',
         year: 2025,
         description: `
-      A complete agency portfolio platform built for Electro EV to showcase their services, blog content, and product offerings. <br/> <br/>
-      
+      Lifeidesign is a platform that helps you design and gamify your life — one weekend at a time. It features a collection of games targeting different aspects of life such as time, money, choices, sorrows, and confusions. Each game is paired with a journaling layer so you can reflect on your experiences and track personal growth over time.<br/><br/>
+
       Key Features:<br/>
       <ul>
-        <li>🛠️ Service Display System: Interactive service showcase with synchronized sliders</li>
-        <li>✍️ Blog Management: SEO-friendly blog with categorization and search</li>
-        <li>🛒 Product Catalog: Organized product display with filtering capabilities</li>
-        <li>📱 Fully Responsive: Optimized for all device sizes</li>
-        <li>⚡ Fast Performance: Optimized Next.js frontend with ISR (Incremental Static Regeneration)</li>
+        <li>Life Games: Interactive games targeting real-life challenges — finances, decisions, emotions, and more</li>
+        <li>Life Journal: Built-in journaling to reflect on game outcomes and personal insights</li>
+        <li>Automations: n8n-powered workflows for notifications, reminders, and background tasks</li>
+        <li>Cloud Storage: User content and media stored on AWS S3</li>
+        <li>Fully Responsive: Seamless experience across all devices</li>
       </ul><br/>
-      
+
       Technical Highlights:
       <ul>
-        <li>Implemented complex slider synchronization logic using Swiper.js</li>
-        <li>Customized Payload CMS admin panel for intuitive content management</li>
-        <li>Developed reusable UI components with shadcn for design consistency</li>
-        <li>Configured efficient data fetching strategies in Next.js</li>
+        <li>Next.js frontend with server-side rendering for fast, SEO-friendly pages</li>
+        <li>Node.js + Express REST API backend</li>
+        <li>MongoDB for flexible, document-based data storage</li>
+        <li>n8n for workflow automation and event-driven triggers</li>
+        <li>Deployed on AWS EC2 with static assets and media on S3</li>
       </ul>
       `,
         role: `
-      Full-Stack Developer <br/>
-      Owned the entire development lifecycle:
+      Full-Stack Developer<br/>
+      Owned the entire product from concept to deployment:
       <ul>
-        <li>✅ Backend: Configured Payload CMS with custom collections for services, blogs, and products</li>
-        <li>🎨 Frontend: Built all UI components using Tailwind CSS and shadcn</li>
-        <li>🔄 State Management: Implemented client-side data fetching and caching</li>
-        <li>🖥️ CMS Customization: Created admin interfaces for content editors</li>
-        <li>🚀 Deployment: Set up CI/CD pipeline for Vercel hosting</li>
-        <li>🧩 Third-Party Integration: Added Swiper.js for interactive sliders</li>
+        <li>Frontend: Built the UI in Next.js with a focus on engaging, game-like interactions</li>
+        <li>Backend: Designed and developed the REST API using Node.js and Express</li>
+        <li>Database: Modeled and managed data with MongoDB</li>
+        <li>Automation: Set up n8n workflows for automated user flows and background tasks</li>
+        <li>Infrastructure: Deployed and managed the full stack on AWS EC2, with S3 for content storage</li>
       </ul>
       `,
         techStack: [
             'Next.js',
-            'Payload CMS',
-            'Tailwind CSS',
-            'shadcn',
-            'Swiper.js',
-            'React Hook Form',
-            'Vercel',
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'n8n',
+            'AWS EC2',
+            'AWS S3',
         ],
-        thumbnail: '/projects/thumbnail/mti-electronics.webp',
-        longThumbnail: '/projects/long/mti-electronics.webp',
+        thumbnail: '/projects/thumbnail/lifeidesign.png',
+        longThumbnail: '/projects/thumbnail/lifeidesign.png',
         images: [
-            '/projects/images/mti-electronics-1.webp',
-            '/projects/images/mti-electronics-2.webp',
+            '/projects/images/lifeidesign/1.jpeg',
+            '/projects/images/lifeidesign/2.jpeg',
+            '/projects/images/lifeidesign/3.jpeg',
         ],
     },
     {
         title: 'CottonClaws',
         slug: 'cottonclaws',
-        liveUrl: 'https://demo.epikcart.siphertech.com/',
+        liveUrl: 'https://cottonclaws.store',
         year: 2023,
-        description: `Epikcart is a feature-rich, scalable e-commerce platform tailored for large businesses. It features dynamic product filtering, multi-language support with RTL, advanced inventory management, order tracking, and refund systems, offering a comprehensive solution for multi-vendor operations.`,
-        role: `As the frontend developer in a team of five, I: <br/>
-        - Built the frontend from scratch using React, Redux, RTK Query, and Tailwind CSS.<br/>
-        - Developed dynamic filtering logic for the product search page with admin-configurable parameters.<br/>
-        - Integrated multi-language support with React i18n, including RTL handling.<br/>
-        - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.`,
+        description: `
+      CottonClaws is a streetwear clothing brand with a bold, urban identity. The store is built on Shopify with a fully custom UI — every section, layout, and interaction was hand-coded to match the brand's aesthetic rather than relying on a generic theme.<br/><br/>
+
+      Key Features:
+      <ul>
+        <li>Custom storefront UI built from scratch on Shopify</li>
+        <li>Smooth page and element animations using Framer Motion</li>
+        <li>Fully responsive design optimized for mobile-first shopping</li>
+        <li>Tailwind CSS utility-first styling for consistent design language</li>
+        <li>Custom product pages, collection layouts, and cart interactions</li>
+      </ul>
+      `,
+        role: `
+      Frontend Developer & Shopify Developer<br/>
+      <ul>
+        <li>Designed and built the entire storefront UI using HTML, CSS, and Tailwind CSS</li>
+        <li>Implemented custom animations and transitions with Framer Motion</li>
+        <li>Customized Shopify Liquid templates to support the bespoke design</li>
+        <li>Ensured a seamless, performant shopping experience across all devices</li>
+      </ul>
+      `,
         techStack: [
-            'React',
-            'Redux',
-            'React i18n',
+            'Shopify',
+            'HTML',
             'Tailwind CSS',
             'Framer Motion',
-            'debouncing',
-            'Api Integration',
+            'CSS',
         ],
-        thumbnail: '/projects/thumbnail/epikcart.jpg',
-        longThumbnail: '/projects/long/epikcart.jpg',
+        thumbnail: '/projects/thumbnail/cottonclaws.png',
+        longThumbnail: '/projects/long/cottonclaws/1.png',
         images: [
-            '/projects/images/epikcart-1.png',
-            '/projects/images/epikcart-2.png',
-            '/projects/images/epikcart-3.png',
-            '/projects/images/epikcart-4.png',
-            '/projects/images/epikcart-5.png',
+            '/projects/images/cottonclaws/1.png',
+            '/projects/images/cottonclaws/3.png',
         ],
     },
     {
         title: 'Trunckcall Ai',
         slug: 'trunckcall-ai',
-        liveUrl: 'https://resume-roaster.vercel.app/',
-        year: 2023,
-        description:
-            'Resume Roaster is a web application designed to provide tailored resume feedback and professional writing services. Built with Next.js, PostgreSQL, Prisma, and Tailwind CSS, it integrates GPT-4 for AI-powered recommendations. The platform also includes peer-to-peer reviews with a points-based system, fostering a collaborative and engaging experience. Targeting freshers, experienced professionals, and programmers, it helps optimize resumes for job-specific success.',
-        role: `As the sole developer and business owner, I:<br/>
-        - Designed and developed the platform end-to-end using Next.js, PostgreSQL, Prisma, and Tailwind CSS.<br/>
-        - Integrated GPT-4 for AI-driven feedback and insights.<br/>
-        - Implemented complex SQL queries, including one to identify the top two resumes based on user points.`,
+        liveUrl: 'https://trunkcall.ai',
+        year: 2024,
+        description: `
+      Trunkcall AI is a service that generates hyperrealistic AI video ads for brands. I built the marketing website — a polished, animated landing page where potential clients can learn about the service and get in touch.<br/><br/>
+
+      Key Features:
+      <ul>
+        <li>High-impact landing page with smooth GSAP-powered animations</li>
+        <li>Contact form with Node.js email handling on the backend</li>
+        <li>reCAPTCHA integration to prevent spam submissions</li>
+        <li>Fully responsive layout built with Tailwind CSS</li>
+      </ul>
+      `,
+        role: `
+      Frontend Developer<br/>
+      <ul>
+        <li>Built the entire website using Next.js and Tailwind CSS</li>
+        <li>Implemented scroll and entrance animations using GSAP</li>
+        <li>Set up a Node.js backend route for email handling via the contact form</li>
+        <li>Integrated Google reCAPTCHA for form verification</li>
+      </ul>
+      `,
         techStack: [
-            'GPT-4',
             'Next.js',
-            'PostgreSQL',
-            'Prisma',
             'Tailwind CSS',
+            'GSAP',
+            'Node.js',
         ],
-        thumbnail: '/projects/thumbnail/resume-roaster.jpg',
-        longThumbnail: '/projects/long/resume-roaster.jpg',
+        thumbnail: '/projects/thumbnail/trunkcall.jpg',
+        longThumbnail: '/projects/long/trunckcall-ai/1.png',
         images: [
-            '/projects/images/resume-roaster-1.png',
-            '/projects/images/resume-roaster-2.png',
-            '/projects/images/resume-roaster-3.png',
+            '/projects/images/trunckcall-ai/1.png',
         ],
     },
     {
         title: 'Organic Chakki',
         slug: 'organic-chakki',
-        liveUrl: 'https://demo.propertypro.siphertech.com/',
-        year: 2023,
-        description:
-            'PropertyPro is a real estate management platform offering users a seamless experience to explore, manage, and view property listings. The application emphasizes accessibility and responsive design, ensuring a smooth interface across devices.',
-        role: `As the frontend developer, I:<br/>
-        - Built the frontend using React, Redux, RTK Query, Framer Motion, and Tailwind CSS.<br/>
-        - Integrated dynamic state management for efficient handling of property data.<br/>
-        - Implemented multi-language support with React i18n to cater to diverse audiences.<br/>
-        - Enhanced user interaction with animations and transitions using Framer Motion.`,
+        liveUrl: 'https://organicchakki.life',
+        year: 2024,
+        description: `
+      Organic Chakki is a Shopify e-commerce store selling organic grains, seeds, and natural food products. Like CottonClaws, the entire storefront UI was custom-coded — no generic theme, just a clean and purposeful design built to match the brand's organic identity.<br/><br/>
+
+      Key Features:
+      <ul>
+        <li>Custom Shopify storefront UI built from scratch</li>
+        <li>Smooth animations and transitions using Framer Motion</li>
+        <li>Tailwind CSS for consistent, responsive styling</li>
+        <li>Custom product and collection pages tailored to the brand</li>
+        <li>Mobile-first design for a seamless shopping experience</li>
+      </ul>
+      `,
+        role: `
+      Frontend Developer & Shopify Developer<br/>
+      <ul>
+        <li>Built the full storefront UI using HTML, CSS, and Tailwind CSS</li>
+        <li>Implemented animations and interactions with Framer Motion</li>
+        <li>Customized Shopify Liquid templates to support the bespoke design</li>
+        <li>Ensured performance and responsiveness across all screen sizes</li>
+      </ul>
+      `,
         techStack: [
-            'React.js',
-            'Redux',
+            'Shopify',
+            'HTML',
             'Tailwind CSS',
-            'React i18n',
             'Framer Motion',
+            'CSS',
         ],
-        thumbnail: '/projects/thumbnail/property-pro.jpg',
-        longThumbnail: '/projects/long/property-pro.jpg',
+        thumbnail: '/projects/thumbnail/organicchakki.png',
+        longThumbnail: '/projects/thumbnail/organicchakki.png',
         images: [
-            '/projects/images/property-pro-1.png',
-            '/projects/images/property-pro-2.png',
-            '/projects/images/property-pro-3.png',
+            '/projects/images/organic-chakki/1.png',
+            '/projects/images/organic-chakki/2.png',
         ],
     },
     {
         title: 'Pikova',
         slug: 'pikova',
-        sourceCode: 'https://github.com/Kumar-Sushil0/crenotive',
-        liveUrl: 'https://crenotive.netlify.app/',
-        year: 2023,
-        description:
-            'I developed Crenotive, a portfolio website using Html, SASS, and jQuery to showcase services and expertise. The design focuses on responsive user experience and effective presentation of professional achievements.',
-        role: '',
-        techStack: ['HTML', 'CSS & SCSS', 'Javascript', 'Bootstrap'],
-        thumbnail: '/projects/thumbnail/consulting-finance.jpg',
-        longThumbnail: '/projects/long/consulting-finance.jpg',
+        liveUrl: 'https://pikova.in',
+        year: 2024,
+        description: `
+      Pikova is a subscription-based e-commerce platform for premium spring bottled water. The entire platform is custom-built using the MERN stack — no off-the-shelf solution, just a fully tailored storefront and backend designed around a recurring subscription model.<br/><br/>
+
+      Key Features:
+      <ul>
+        <li>Subscription-based purchasing flow for recurring water deliveries</li>
+        <li>Custom React frontend with a clean, product-focused UI</li>
+        <li>Node.js + Express REST API handling orders and subscriptions</li>
+        <li>MongoDB for managing users, orders, and subscription data</li>
+        <li>Fully responsive design across all devices</li>
+      </ul>
+      `,
+        role: `
+      Full-Stack Developer<br/>
+      <ul>
+        <li>Built the React frontend from scratch with a focus on conversion and UX</li>
+        <li>Developed the backend API using Node.js and Express</li>
+        <li>Designed the MongoDB schema for users, products, and subscriptions</li>
+        <li>Implemented the subscription logic and order management flow end-to-end</li>
+      </ul>
+      `,
+        techStack: [
+            'React',
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'Tailwind CSS',
+        ],
+        thumbnail: '/projects/thumbnail/pikova.png',
+        longThumbnail: '/projects/long/pikova/1.png',
         images: [
-            '/projects/images/consulting-finance-1.png',
-            '/projects/images/consulting-finance-2.png',
-            '/projects/images/consulting-finance-3.png',
+            '/projects/images/pikova/1.png',
         ],
     },
     {
         title: 'Alain Store',
         slug: 'alain-store',
-        sourceCode: 'https://github.com/Kumar-Sushil0/devsLink',
-        liveUrl: 'https://devlinks-demo.vercel.app/auth/signin',
-        year: 2023,
-        description: `One of the most challenging projects in Frontend Mentor.<br/><br/>
-            I developed a LinkSharing App as part of the Frontend Mentor challenge, utilizing React, Redux, and Tailwind CSS to create a responsive and feature-rich platform. The app allows users to share, save, and explore links, with a focus on intuitive design and smooth navigation. Advanced state management ensures efficient data handling for user interactions.`,
-        role: '',
-        techStack: ['Next.js', 'Formik', 'Drag & Drop', 'Tailwind CSS'],
-        thumbnail: '/projects/thumbnail/devLinks.jpg',
-        longThumbnail: '/projects/long/devLinks.jpg',
+        liveUrl: 'https://alainstore.in',
+        year: 2024,
+        description: `
+      Alain Store is a Shopify e-commerce store selling tech products. Like the other Shopify projects, the storefront was fully custom-coded — no default theme, just a clean tech-focused UI built to give the brand its own identity.<br/><br/>
+
+      Key Features:
+      <ul>
+        <li>Custom Shopify storefront UI built from scratch</li>
+        <li>Smooth animations and transitions using Framer Motion</li>
+        <li>Tailwind CSS for a consistent, responsive design system</li>
+        <li>Custom product and collection pages tailored to tech retail</li>
+        <li>Mobile-first, performance-optimized layout</li>
+      </ul>
+      `,
+        role: `
+      Frontend Developer & Shopify Developer<br/>
+      <ul>
+        <li>Built the full storefront UI using HTML, CSS, and Tailwind CSS</li>
+        <li>Implemented animations and interactions with Framer Motion</li>
+        <li>Customized Shopify Liquid templates to support the bespoke design</li>
+        <li>Ensured a fast, responsive experience across all devices</li>
+      </ul>
+      `,
+        techStack: [
+            'Shopify',
+            'HTML',
+            'Tailwind CSS',
+            'Framer Motion',
+            'CSS',
+        ],
+        thumbnail: '/projects/thumbnail/alain.png',
+        longThumbnail: '/projects/thumbnail/alain.png',
         images: [
-            '/projects/images/devLinks-1.png',
-            '/projects/images/devLinks-2.png',
-            '/projects/images/devLinks-3.png',
+            '/projects/images/alain-store/1.png',
+            '/projects/images/alain-store/2.png',
         ],
     },
     {
         title: 'Mandale Wellness',
         slug: 'mandale-wellness',
-        liveUrl: 'https://electroev.co.uk/',
+        liveUrl: 'https://mandalewellness.com',
         year: 2025,
         description: `
-      A complete agency portfolio platform built for Electro EV to showcase their services, blog content, and product offerings. <br/> <br/>
-      
-      Key Features:<br/>
+      Mandale Wellness is a Shopify e-commerce store selling beauty and wellness products. The storefront features a fully custom UI with rich interactive animations — built to feel premium and immersive, matching the brand's wellness identity.<br/><br/>
+
+      Key Features:
       <ul>
-        <li>🛠️ Service Display System: Interactive service showcase with synchronized sliders</li>
-        <li>✍️ Blog Management: SEO-friendly blog with categorization and search</li>
-        <li>🛒 Product Catalog: Organized product display with filtering capabilities</li>
-        <li>📱 Fully Responsive: Optimized for all device sizes</li>
-        <li>⚡ Fast Performance: Optimized Next.js frontend with ISR (Incremental Static Regeneration)</li>
-      </ul><br/>
-      
-      Technical Highlights:
-      <ul>
-        <li>Implemented complex slider synchronization logic using Swiper.js</li>
-        <li>Customized Payload CMS admin panel for intuitive content management</li>
-        <li>Developed reusable UI components with shadcn for design consistency</li>
-        <li>Configured efficient data fetching strategies in Next.js</li>
+        <li>Custom Shopify storefront UI built from scratch</li>
+        <li>Interactive GSAP animations for scroll, hover, and entrance effects</li>
+        <li>Smooth transitions powered by Framer Motion</li>
+        <li>Tailwind CSS for a clean, responsive design system</li>
+        <li>Custom product and collection pages with a luxury feel</li>
       </ul>
       `,
         role: `
-      Full-Stack Developer <br/>
-      Owned the entire development lifecycle:
+      Frontend Developer & Shopify Developer<br/>
       <ul>
-        <li>✅ Backend: Configured Payload CMS with custom collections for services, blogs, and products</li>
-        <li>🎨 Frontend: Built all UI components using Tailwind CSS and shadcn</li>
-        <li>🔄 State Management: Implemented client-side data fetching and caching</li>
-        <li>🖥️ CMS Customization: Created admin interfaces for content editors</li>
-        <li>🚀 Deployment: Set up CI/CD pipeline for Vercel hosting</li>
-        <li>🧩 Third-Party Integration: Added Swiper.js for interactive sliders</li>
+        <li>Built the full storefront UI using HTML, CSS, and Tailwind CSS</li>
+        <li>Implemented complex interactive animations using GSAP</li>
+        <li>Added smooth transitions and micro-interactions with Framer Motion</li>
+        <li>Customized Shopify Liquid templates to support the bespoke design</li>
+        <li>Optimized for performance and responsiveness across all devices</li>
       </ul>
       `,
         techStack: [
-            'Next.js',
-            'Payload CMS',
+            'Shopify',
+            'HTML',
             'Tailwind CSS',
-            'shadcn',
-            'Swiper.js',
-            'React Hook Form',
-            'Vercel',
+            'GSAP',
+            'Framer Motion',
+            'CSS',
         ],
-        thumbnail: '/projects/thumbnail/mti-electronics.webp',
-        longThumbnail: '/projects/long/mti-electronics.webp',
+        thumbnail: '/projects/thumbnail/mandalewellness.png',
+        longThumbnail: '/projects/long/mandale-wellness/1.png',
         images: [
-            '/projects/images/mti-electronics-1.webp',
-            '/projects/images/mti-electronics-2.webp',
+            '/projects/long/mandale-wellness/2.png',
         ],
     },
     {
         title: 'The Silent Club',
         slug: 'the-silent-club',
-        liveUrl: 'https://demo.epikcart.siphertech.com/',
-        year: 2023,
-        description: `Epikcart is a feature-rich, scalable e-commerce platform tailored for large businesses. It features dynamic product filtering, multi-language support with RTL, advanced inventory management, order tracking, and refund systems, offering a comprehensive solution for multi-vendor operations.`,
-        role: `As the frontend developer in a team of five, I: <br/>
-        - Built the frontend from scratch using React, Redux, RTK Query, and Tailwind CSS.<br/>
-        - Developed dynamic filtering logic for the product search page with admin-configurable parameters.<br/>
-        - Integrated multi-language support with React i18n, including RTL handling.<br/>
-        - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.`,
+        liveUrl: 'https://thesilent.club',
+        year: 2025,
+        description: `
+      The Silent Club is a booking platform for an exclusive, approval-only silent resort — a place where silence is the rule and guests are encouraged to disconnect. The experience starts on the website itself, where guests can design their entire stay by dragging and dropping activities into a personal timetable.<br/><br/>
+
+      Key Features:
+      <ul>
+        <li>Approval-only entry flow — guests apply and await confirmation</li>
+        <li>Drag-and-drop day planner to build a personal activity schedule</li>
+        <li>Activity library curated by the resort, pulled dynamically from the backend</li>
+        <li>Full booking management system with user accounts</li>
+        <li>Media and assets served via AWS S3 as CDN</li>
+        <li>Deployed on AWS EC2 for reliable, scalable hosting</li>
+      </ul>
+      `,
+        role: `
+      Full-Stack Developer<br/>
+      <ul>
+        <li>Built the Next.js frontend including the drag-and-drop timetable UI</li>
+        <li>Developed the REST API using Node.js and Express</li>
+        <li>Designed MongoDB schemas for users, bookings, and activity data</li>
+        <li>Integrated AWS S3 for media storage and CDN delivery</li>
+        <li>Deployed and managed the full stack on AWS EC2</li>
+      </ul>
+      `,
         techStack: [
-            'React',
-            'Redux',
-            'React i18n',
-            'Tailwind CSS',
-            'Framer Motion',
-            'debouncing',
-            'Api Integration',
+            'Next.js',
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'AWS EC2',
+            'AWS S3',
+            'Drag & Drop',
         ],
-        thumbnail: '/projects/thumbnail/epikcart.jpg',
-        longThumbnail: '/projects/long/epikcart.jpg',
+        thumbnail: '/projects/thumbnail/TheSilentClub.png',
+        longThumbnail: '/projects/thumbnail/TheSilentClub.png',
         images: [
-            '/projects/images/epikcart-1.png',
-            '/projects/images/epikcart-2.png',
-            '/projects/images/epikcart-3.png',
-            '/projects/images/epikcart-4.png',
-            '/projects/images/epikcart-5.png',
+            '/projects/images/the-silent-club/1.png',
+            '/projects/images/the-silent-club/2.png',
         ],
     },
 ];
@@ -429,13 +561,17 @@ export const MY_EXPERIENCE = [
     },
 ];
 
-export const MORE_PROJECTS: { title: string; url: string }[] = [
-    { title: 'Lets Live Tours', url: 'https://letslivetours.com' },
-    { title: 'Oacpens', url: 'https://oacpens.com' },
-    { title: 'Margikka', url: 'https://margikka.com' },
-    { title: 'Wikolo', url: 'https://wikolo.com' },
-    { title: 'Izelli Lifestyle', url: 'https://izellifestyle.com' },
-    { title: 'The Biryani Baithak', url: 'https://www.thebiryanibaithak.in' },
-    { title: 'Little Pros Fit', url: 'https://littlepros.fit' },
-    { title: 'Admit Scholar', url: 'https://admitscholar.com' },
+export const MORE_PROJECTS: { title: string; url: string; tags: string[] }[] = [
+    { title: 'Lets Live Tours', url: 'https://letslivetours.com', tags: ['MERN'] },
+    { title: 'Oacpens', url: 'https://oacpens.com', tags: ['Shopify'] },
+    { title: 'Margikka', url: 'https://margikka.com', tags: ['WordPress'] },
+    { title: 'Wikolo', url: 'https://wikolo.com', tags: ['WordPress'] },
+    { title: 'Izelli Lifestyle', url: 'https://izellifestyle.com', tags: ['WordPress'] },
+    { title: 'The Biryani Baithak', url: 'https://www.thebiryanibaithak.in', tags: ['Next.js'] },
+    { title: 'Little Pros Fit', url: 'https://littlepros.fit', tags: ['Next.js'] },
+    { title: 'Admit Scholar', url: 'https://admitscholar.com', tags: ['WordPress'] },
+    { title: 'Skeft Studios', url: 'https://skeftstudios.com', tags: ['Webflow'] },
+    { title: 'Tommy Casa', url: 'https://tommycasa.in', tags: ['Shopify'] },
+    { title: 'Mihir Mandviya', url: 'https://mihirmandviya.io', tags: ['Next.js'] },
+    { title: 'Sushil Kumar', url: 'https://sushilkumar.space', tags: ['Next.js'] },
 ];

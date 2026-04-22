@@ -1,40 +1,44 @@
 'use client';
 import { GitHubCalendar } from 'react-github-calendar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const currentYear = new Date().getFullYear();
+const YEAR = 2026;
+const USERNAME = 'Kumar-Sushil0';
 
 const GitHubCalendarWrapper = () => {
-    const [year, setYear] = useState(currentYear);
+    const [contributions, setContributions] = useState<number | null>(null);
+
+    useEffect(() => {
+        fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=${YEAR}`)
+            .then((r) => r.json())
+            .then((data) => {
+                const total = data?.total?.[YEAR];
+                if (typeof total === 'number') setContributions(total);
+            })
+            .catch(() => {});
+    }, []);
 
     return (
-        <div className="flex flex-col items-center gap-4">
-            <div className="flex gap-2">
-                {[currentYear, currentYear - 1].map((y) => (
-                    <button
-                        key={y}
-                        onClick={() => setYear(y)}
-                        className={`px-4 py-1.5 text-sm font-medium transition-all border ${
-                            year === y
-                                ? 'bg-primary text-primary-foreground border-primary'
-                                : 'border-border text-muted-foreground hover:text-foreground hover:border-foreground'
-                        }`}
-                    >
-                        {y}
-                    </button>
-                ))}
+        <div className="flex flex-col items-center gap-4 w-full">
+            {/* Desktop — full calendar grid */}
+            <div className="hidden sm:block">
+                <GitHubCalendar
+                    username={USERNAME}
+                    year={YEAR}
+                    colorScheme="dark"
+                    theme={{ dark: ['#2d2d2d', '#00d97e'] }}
+                    blockSize={13}
+                    blockMargin={4}
+                    fontSize={12}
+                />
             </div>
-            <GitHubCalendar
-                username="Kumar-Sushil0"
-                year={year}
-                colorScheme="dark"
-                theme={{
-                    dark: ['#2d2d2d', '#00d97e'],
-                }}
-                blockSize={13}
-                blockMargin={4}
-                fontSize={12}
-            />
+
+            {/* Mobile — plain text count */}
+            <div className="sm:hidden text-center text-sm text-muted-foreground">
+                {contributions !== null
+                    ? <>{contributions.toLocaleString()} GitHub contributions in {YEAR}</>
+                    : 'Loading contributions...'}
+            </div>
         </div>
     );
 };

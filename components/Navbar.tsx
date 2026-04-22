@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
@@ -14,62 +14,51 @@ const COLORS = [
 ];
 
 const MENU_LINKS = [
-    {
-        name: 'Home',
-        url: '/',
-    },
-    {
-        name: 'About Me',
-        url: '/#about-me',
-    },
-    {
-        name: 'Experience',
-        url: '/#my-experience',
-    },
-    {
-        name: 'Projects',
-        url: '/projects',
-    },
+    { name: 'Home', url: '/' },
+    { name: 'About Me', url: '/#about-me' },
+    { name: 'Experience', url: '/#my-experience' },
+    { name: 'Projects', url: '/projects' },
 ];
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 10);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <>
             <div className="sticky top-0 z-[4]">
+                {/* Mobile header strip — appears on scroll */}
+                <div className={cn(
+                    'md:hidden absolute inset-x-0 top-0 h-16 bg-background border-b border-border transition-all duration-300',
+                    scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                )} />
+
                 <TransitionLink
                     href="/"
-                    className="absolute top-3 left-5 md:left-10 z-[2] font-anton text-4xl leading-none select-none"
+                    className="absolute top-4 left-5 md:left-10 z-[2] font-anton text-4xl leading-none select-none"
                 >
                     <span className="text-primary">S</span>
                     <span className="text-foreground">K</span>
                 </TransitionLink>
                 <button
-                    className={cn(
-                        'group size-12 absolute top-5 right-5 md:right-10 z-[2]',
-                    )}
+                    className={cn('group size-12 absolute top-4 right-4 md:top-5 md:right-10 z-[2] flex items-center justify-center')}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                    <span
-                        className={cn(
-                            'inline-block w-3/5 h-0.5 bg-foreground rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 -translate-y-[5px] ',
-                            {
-                                'rotate-45 -translate-y-1/2': isMenuOpen,
-                                'md:group-hover:rotate-12': !isMenuOpen,
-                            },
-                        )}
-                    ></span>
-                    <span
-                        className={cn(
-                            'inline-block w-3/5 h-0.5 bg-foreground rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 translate-y-[5px] ',
-                            {
-                                '-rotate-45 -translate-y-1/2': isMenuOpen,
-                                'md:group-hover:-rotate-12': !isMenuOpen,
-                            },
-                        )}
-                    ></span>
+                    <span className={cn(
+                        'inline-block w-6 h-0.5 bg-foreground rounded-full absolute duration-300 -translate-y-[5px]',
+                        { 'rotate-45 translate-y-0': isMenuOpen, 'md:group-hover:rotate-12': !isMenuOpen },
+                    )} />
+                    <span className={cn(
+                        'inline-block w-6 h-0.5 bg-foreground rounded-full absolute duration-300 translate-y-[5px]',
+                        { '-rotate-45 translate-y-0': isMenuOpen, 'md:group-hover:-rotate-12': !isMenuOpen },
+                    )} />
                 </button>
             </div>
 

@@ -6,6 +6,7 @@ import { MORE_PROJECTS } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { TECH_STACK_ICONS } from '@/lib/data';
 import Image from 'next/image';
 import { useRef, useState, MouseEvent } from 'react';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
@@ -176,9 +177,27 @@ const AllProjectsView = ({ projects }: Props) => {
                                 rel="noreferrer noopener"
                                 className="fade-in group flex items-center justify-between p-5 border-border hover:bg-background-light transition-all duration-300"
                             >
-                                <span className="font-anton text-lg group-hover:text-primary transition-colors duration-300">
-                                    {project.title}
-                                </span>
+                                <div>
+                                    <span className="font-anton text-lg group-hover:text-primary transition-colors duration-300 block">
+                                        {project.title}
+                                    </span>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {project.tags.map((tag) => (
+                                            <span key={tag} className="flex items-center gap-1 text-xs text-muted-foreground">
+                                                {TECH_STACK_ICONS[tag] && (
+                                                    <Image
+                                                        src={TECH_STACK_ICONS[tag]}
+                                                        alt={tag}
+                                                        width={12}
+                                                        height={12}
+                                                        className="max-h-3 w-auto object-contain"
+                                                    />
+                                                )}
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
                                 <ExternalLink
                                     size={16}
                                     className="shrink-0 text-muted-foreground group-hover:text-primary transition-colors duration-300 ml-3"

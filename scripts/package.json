@@ -1,0 +1,13 @@
+{
+  "name": "resume-generator",
+  "version": "1.0.0",
+  "description": "Generate PDF resume from markdown",
+  "main": "generate-resume-pdf.js",
+  "scripts": {
+    "generate": "node generate-resume-pdf.js"
+  },
+  "dependencies": {
+    "marked": "^12.0.0",
+    "puppeteer": "^22.0.0"
+  }
+}

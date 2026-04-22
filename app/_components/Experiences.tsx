@@ -57,8 +57,8 @@ const Experiences = () => {
                 <SectionTitle title="My Experience" />
 
                 <div className="grid gap-10 md:gap-14">
-                    {MY_EXPERIENCE.map((item) => (
-                        <div key={item.title} className="experience-item border-b pb-10 md:pb-0 md:border-none last:border-none last:pb-0">
+                    {MY_EXPERIENCE.map((item, index) => (
+                        <div key={`${item.title}-${index}`} className="experience-item border-b pb-10 md:pb-0 md:border-none last:border-none last:pb-0">
                             <p className="text-base sm:text-xl text-muted-foreground">
                                 {item.company}
                             </p>

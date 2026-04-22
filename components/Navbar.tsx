@@ -40,13 +40,13 @@ const Navbar = () => {
                     scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 )} />
 
-                <TransitionLink
+                <a
                     href="/"
                     className="absolute top-4 left-5 md:left-10 z-[2] font-anton text-4xl leading-none select-none"
                 >
                     <span className="text-primary">S</span>
                     <span className="text-foreground">K</span>
-                </TransitionLink>
+                </a>
                 <button
                     className={cn('group size-12 absolute top-4 right-4 md:top-5 md:right-10 z-[2] flex items-center justify-center')}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -147,6 +147,14 @@ const Navbar = () => {
                     <p className="text-muted-foreground mb-4">GET IN TOUCH</p>
                     <a href={`mailto:${GENERAL_INFO.email}`}>
                         {GENERAL_INFO.email}
+                    </a>
+                    <a
+                        href="/Sushil_Kumar_Resume.pdf"
+                        download="Sushil_Kumar_Resume.pdf"
+                        className="mt-5 flex items-center gap-2 text-xl font-anton text-foreground hover:text-primary transition-colors duration-300"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download CV
                     </a>
                 </div>
             </div>

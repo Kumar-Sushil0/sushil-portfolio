@@ -190,14 +190,14 @@ const Banner = () => {
                     </p>
 
 
-                    <Button
-                        as="link"
-                        href={`mailto:${GENERAL_INFO.email}`}
-                        variant="primary"
-                        className="mt-8 banner-button slide-up-and-fade"
+                    <a
+                        href="/Sushil_Kumar_Resume.pdf"
+                        download="Sushil_Kumar_Resume.pdf"
+                        className="mt-8 banner-button slide-up-and-fade group h-12 px-8 inline-flex justify-center items-center gap-2 text-lg uppercase font-anton tracking-widest bg-primary text-primary-foreground relative overflow-hidden"
                     >
-                        Hire Me
-                    </Button>
+                        <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover:top-0 transition-all duration-500 scale-150"></span>
+                        <span className="z-[1]">Download CV</span>
+                    </a>
                 </div>
 
                 <CodeCard />

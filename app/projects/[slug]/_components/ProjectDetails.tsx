@@ -92,7 +92,7 @@ const ProjectDetails = ({ project }: Props) => {
                 <TransitionLink
                     back
                     href="/"
-                    className="mb-10 md:mb-16 inline-flex gap-2 items-center group h-12"
+                    className="mt-8 md:mt-0 mb-10 md:mb-16 inline-flex gap-2 items-center group h-12"
                 >
                     <ArrowLeft className="group-hover:-translate-x-1 group-hover:text-primary transition-all duration-300" />
                     Back

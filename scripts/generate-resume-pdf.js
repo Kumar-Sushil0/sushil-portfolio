@@ -580,7 +580,7 @@ async function generateResumePDF() {
     console.log('✅ Content loaded in browser');
     
     // Generate PDF
-    const outputPath = path.join(__dirname, '..', 'Sushil_Kumar_Resume.pdf');
+    const outputPath = path.join(__dirname, '..', 'public', 'Sushil_Kumar_Resume.pdf');
     await page.pdf({
       path: outputPath,
       format: 'Letter',

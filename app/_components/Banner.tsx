@@ -11,22 +11,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const USERNAME = 'Kumar-Sushil0';
 
 
-const CODE_LINES = [
-    { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'developer', color: 'text-foreground' }, { text: ' = {', color: 'text-foreground' }] },
-    { tokens: [{ text: '  name', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Sushil Kumar"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  role', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Full-Stack Developer"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  focus', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Scalable Web Systems"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  experience', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"3+ years"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  projects', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"15+"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  contributions', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"500+ contributions"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  stack', color: 'text-blue-400' }, { text: ': [', color: 'text-foreground' }] },
-    { tokens: [{ text: '  ]', color: 'text-foreground' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  status', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Open to work"', color: 'text-primary' }] },
-    { tokens: [{ text: '};', color: 'text-foreground' }] },
-    { tokens: [] },
-    { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'createMagic', color: 'text-yellow-400' }, { text: ' = () => ', color: 'text-foreground' }, { text: 'passion', color: 'text-blue-400' }, { text: ' + ', color: 'text-foreground' }, { text: '"Code"', color: 'text-primary' }, { text: ';', color: 'text-foreground' }] },
-];
-
 const CodeCard = ({ contributions }: { contributions: number }) => {
     // flat string of all chars with their color, plus line breaks
     type CharEntry = { char: string; color: string; isNewLine?: boolean };

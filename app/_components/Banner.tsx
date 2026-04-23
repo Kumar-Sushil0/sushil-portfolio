@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/all';
 import React, { useRef, useEffect, useState, useMemo } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
+ 
 const USERNAME = 'Kumar-Sushil0';
 
 

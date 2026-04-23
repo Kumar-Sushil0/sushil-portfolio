@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
-import TransitionLink from '@/components/TransitionLink';
+import Link from 'next/link';
 
 const COLORS = [
     'bg-yellow-500 text-black',
@@ -40,13 +40,13 @@ const Navbar = () => {
                     scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 )} />
 
-                <a
+                <Link
                     href="/"
                     className="absolute top-4 left-5 md:left-10 z-[2] font-anton text-4xl leading-none select-none"
                 >
                     <span className="text-primary">S</span>
                     <span className="text-foreground">K</span>
-                </a>
+                </Link>
                 <button
                     className={cn('group size-12 absolute top-4 right-4 md:top-5 md:right-10 z-[2] flex items-center justify-center')}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}

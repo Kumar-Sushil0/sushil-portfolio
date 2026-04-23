@@ -48,7 +48,7 @@ Class 12th (CBSE): 80% | Class 10th (CBSE): 90.10%
 
 ## CONTACT
 
-📧 shailesh334450@gmail.com  
+📧 sushil.devspace@gmail.com  
 📍 Pune, Maharashtra, India - 411047  
 🔗 sushilkumar.space  
 💼 github.com/Kumar-Sushil0  

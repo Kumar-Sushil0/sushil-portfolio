@@ -1,7 +1,7 @@
 import { IProject } from '@/types';
 
 export const GENERAL_INFO = {
-    email: 'skorpion334450@gmail.com',
+    email: 'sushil.devspace@gmail.com',
 
     emailSubject: "Let's collaborate on a project",
     emailBody: 'Hi Sushil, I am reaching out to you because...',
@@ -254,7 +254,7 @@ export const PROJECTS: IProject[] = [
         title: 'CottonClaws',
         slug: 'cottonclaws',
         liveUrl: 'https://cottonclaws.store',
-        year: 2023,
+        year: 2026,
         description: `
       CottonClaws is a streetwear clothing brand with a bold, urban identity. The store is built on Shopify with a fully custom UI — every section, layout, and interaction was hand-coded to match the brand's aesthetic rather than relying on a generic theme.<br/><br/>
 
@@ -294,7 +294,7 @@ export const PROJECTS: IProject[] = [
         title: 'Trunckcall Ai',
         slug: 'trunckcall-ai',
         liveUrl: 'https://trunkcall.ai',
-        year: 2024,
+        year: 2026,
         description: `
       Trunkcall AI is a service that generates hyperrealistic AI video ads for brands. I built the marketing website — a polished, animated landing page where potential clients can learn about the service and get in touch.<br/><br/>
 
@@ -331,7 +331,7 @@ export const PROJECTS: IProject[] = [
         title: 'Organic Chakki',
         slug: 'organic-chakki',
         liveUrl: 'https://organicchakki.life',
-        year: 2024,
+        year: 2026,
         description: `
       Organic Chakki is a Shopify e-commerce store selling organic grains, seeds, and natural food products. Like CottonClaws, the entire storefront UI was custom-coded — no generic theme, just a clean and purposeful design built to match the brand's organic identity.<br/><br/>
 
@@ -371,7 +371,7 @@ export const PROJECTS: IProject[] = [
         title: 'Pikova',
         slug: 'pikova',
         liveUrl: 'https://pikova.in',
-        year: 2024,
+        year: 2026,
         description: `
       Pikova is a subscription-based e-commerce platform for premium spring bottled water. The entire platform is custom-built using the MERN stack — no off-the-shelf solution, just a fully tailored storefront and backend designed around a recurring subscription model.<br/><br/>
 
@@ -410,7 +410,7 @@ export const PROJECTS: IProject[] = [
         title: 'Alain Store',
         slug: 'alain-store',
         liveUrl: 'https://alainstore.in',
-        year: 2024,
+        year: 2025,
         description: `
       Alain Store is a Shopify e-commerce store selling tech products. Like the other Shopify projects, the storefront was fully custom-coded — no default theme, just a clean tech-focused UI built to give the brand its own identity.<br/><br/>
 
@@ -491,7 +491,7 @@ export const PROJECTS: IProject[] = [
         title: 'The Silent Club',
         slug: 'the-silent-club',
         liveUrl: 'https://thesilent.club',
-        year: 2025,
+        year: 2026,
         description: `
       The Silent Club is a booking platform for an exclusive, approval-only silent resort — a place where silence is the rule and guests are encouraged to disconnect. The experience starts on the website itself, where guests can design their entire stay by dragging and dropping activities into a personal timetable.<br/><br/>
 
@@ -538,11 +538,6 @@ export const MY_EXPERIENCE = [
         title: 'Full Stack Developer',
         company: 'Lifeidesign.games',
         duration: 'Apr 2025 - Present',
-    },
-    {
-        title: 'Web Developer Intern',
-        company: 'Lifeidesign.games',
-        duration: 'Feb 2025 - Mar 2025',
     },
     {
         title: 'Freelance Developer',

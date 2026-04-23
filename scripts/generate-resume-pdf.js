@@ -326,8 +326,8 @@ async function generateResumePDF() {
             <h1>SUSHIL KUMAR</h1>
             <div class="subtitle">FULL STACK DEVELOPER</div>
             <div class="contact-strip">
-              <a href="mailto:skorpion334450@gmail.com" class="contact-link">
-                <i class="fas fa-envelope"></i> skorpion334450@gmail.com
+              <a href="mailto:sushil.devspace@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> sushil.devspace@gmail.com
               </a>
               <a href="https://sushilkumar.space" class="contact-link" target="_blank">
                 <i class="fas fa-globe"></i> sushilkumar.space

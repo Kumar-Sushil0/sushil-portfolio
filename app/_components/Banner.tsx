@@ -1,5 +1,6 @@
 'use client';
 import ArrowAnimation from '@/components/ArrowAnimation';
+import { GENERAL_INFO } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
@@ -7,11 +8,8 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const STATS = [
-    { value: 3, suffix: '+', label: 'Years of Experience' },
-    { value: 15, suffix: '+', label: 'Completed Projects' },
-    { value: 10, suffix: 'K+', label: 'Hours Worked' },
-];
+const USERNAME = 'Kumar-Sushil0';
+
 
 const CODE_LINES = [
     { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'developer', color: 'text-foreground' }, { text: ' = {', color: 'text-foreground' }] },
@@ -20,7 +18,7 @@ const CODE_LINES = [
     { tokens: [{ text: '  focus', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Scalable Web Systems"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
     { tokens: [{ text: '  experience', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"3+ years"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
     { tokens: [{ text: '  projects', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"15+"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
-    { tokens: [{ text: '  hoursWorked', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"10K+"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+    { tokens: [{ text: '  contributions', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"500+ contributions"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
     { tokens: [{ text: '  stack', color: 'text-blue-400' }, { text: ': [', color: 'text-foreground' }] },
     { tokens: [{ text: '  ]', color: 'text-foreground' }, { text: ',', color: 'text-foreground' }] },
     { tokens: [{ text: '  status', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Open to work"', color: 'text-primary' }] },
@@ -29,21 +27,38 @@ const CODE_LINES = [
     { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'createMagic', color: 'text-yellow-400' }, { text: ' = () => ', color: 'text-foreground' }, { text: 'passion', color: 'text-blue-400' }, { text: ' + ', color: 'text-foreground' }, { text: '"Code"', color: 'text-primary' }, { text: ';', color: 'text-foreground' }] },
 ];
 
-const CodeCard = () => {
+const CodeCard = ({ contributions }: { contributions: number }) => {
     // flat string of all chars with their color, plus line breaks
     type CharEntry = { char: string; color: string; isNewLine?: boolean };
+
+    const codeLines = useMemo(() => [
+        { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'developer', color: 'text-foreground' }, { text: ' = {', color: 'text-foreground' }] },
+        { tokens: [{ text: '  name', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Sushil Kumar"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  role', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Full-Stack Developer"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  focus', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Scalable Web Systems"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  experience', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"3+ years"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  projects', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"15+"', color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  github_contributions', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: `"${contributions}+"`, color: 'text-primary' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  stack', color: 'text-blue-400' }, { text: ': [', color: 'text-foreground' }] },
+        { tokens: [{ text: '  ]', color: 'text-foreground' }, { text: ',', color: 'text-foreground' }] },
+        { tokens: [{ text: '  status', color: 'text-blue-400' }, { text: ': ', color: 'text-foreground' }, { text: '"Open to work"', color: 'text-primary' }] },
+        { tokens: [{ text: '};', color: 'text-foreground' }] },
+        { tokens: [] },
+        { tokens: [{ text: 'const ', color: 'text-purple-400' }, { text: 'createMagic', color: 'text-yellow-400' }, { text: ' = () => ', color: 'text-foreground' }, { text: 'passion', color: 'text-blue-400' }, { text: ' + ', color: 'text-foreground' }, { text: '"Code"', color: 'text-primary' }, { text: ';', color: 'text-foreground' }] },
+    ], [contributions]);
+
     const allChars = useMemo<CharEntry[]>(() => {
         const result: CharEntry[] = [];
-        CODE_LINES.forEach((line, li) => {
+        codeLines.forEach((line, li) => {
             line.tokens.forEach((token) => {
                 for (const char of token.text) {
                     result.push({ char, color: token.color });
                 }
             });
-            if (li < CODE_LINES.length - 1) result.push({ char: '\n', color: '', isNewLine: true });
+            if (li < codeLines.length - 1) result.push({ char: '\n', color: '', isNewLine: true });
         });
         return result;
-    }, []);
+    }, [codeLines]);
 
     const [typed, setTyped] = useState(0);
     const [showCursor, setShowCursor] = useState(true);
@@ -82,7 +97,6 @@ const CodeCard = () => {
             lines[lines.length - 1].push(entry);
         }
     }
-
     return (
         <div className="slide-up-and-fade hidden md:block w-[420px] xl:w-[480px] shrink-0">
             <div className="bg-background-light border border-border rounded-sm overflow-hidden shadow-2xl">
@@ -123,6 +137,23 @@ const CodeCard = () => {
 const Banner = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const countersRef = useRef<(HTMLSpanElement | null)[]>([]);
+    const [totalContributions, setTotalContributions] = useState<number>(500);
+
+    useEffect(() => {
+        fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=all`)
+            .then((r) => r.json())
+            .then((data) => {
+                const total = data?.total?.['lastYear'] ?? Object.values(data?.total ?? {}).reduce((a: number, b) => a + (b as number), 0);
+                if (typeof total === 'number' && total > 0) setTotalContributions(total);
+            })
+            .catch(() => {});
+    }, []);
+
+    const stats = [
+        { value: 3, suffix: '+', label: 'Years of Experience' },
+        { value: 15, suffix: '+', label: 'Completed Projects' },
+        { value: totalContributions, suffix: '+', label: 'GitHub Contributions' },
+    ];
 
     useGSAP(
         () => {
@@ -145,7 +176,7 @@ const Banner = () => {
     );
 
     useGSAP(() => {
-        STATS.forEach((stat, i) => {
+        stats.forEach((stat, i) => {
             const el = countersRef.current[i];
             if (!el) return;
             gsap.fromTo(
@@ -189,20 +220,27 @@ const Banner = () => {
 
 
                     <a
-                        href="/Sushil_Kumar_Resume.pdf"
-                        download="Sushil_Kumar_Resume.pdf"
+                        href={`mailto:${GENERAL_INFO.email}`}
                         className="mt-8 banner-button slide-up-and-fade group h-12 px-8 inline-flex justify-center items-center gap-2 text-lg uppercase font-anton tracking-widest bg-primary text-primary-foreground relative overflow-hidden"
                     >
                         <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover:top-0 transition-all duration-500 scale-150"></span>
-                        <span className="z-[1]">Download CV</span>
+                        <span className="z-[1]">Hire Me / Work With Me</span>
+                    </a>
+                    <a
+                        href="/Sushil_Kumar_Resume.pdf"
+                        download="Sushil_Kumar_Resume.pdf"
+                        className="slide-up-and-fade mt-3 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download CV
                     </a>
                 </div>
 
-                <CodeCard />
+                <CodeCard contributions={totalContributions} />
 
                 {/* Stats — mobile only, row layout */}
                 <div className="flex md:hidden gap-6">
-                    {STATS.map((stat) => (
+                    {stats.map((stat) => (
                         <div key={stat.label} className="slide-up-and-fade">
                             <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1">
                                 {stat.value}{stat.suffix}

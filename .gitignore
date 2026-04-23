@@ -35,8 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Resume PDF output
-Sushil_Kumar_Resume.pdf
-
 # Scripts dependencies
 /scripts/node_modules
